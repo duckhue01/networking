@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/duckhue01/lang/go/net/socket/tcp"
+	"github.com/duckhue01/lang/go/net/arch/serialization"
 )
 
 func main() {
-	tcp.ProxyListener()
+	JSON := &serialization.JSON{}
+	JSON.Decode()
 }

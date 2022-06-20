@@ -47,9 +47,14 @@ func ExampleMonitor() {
 			return
 		}
 
-		w := io.MultiWriter(conn, monitor) 
-		_, err := w.Write(b[:n])
+		w := io.MultiWriter(conn, monitor)
+		_, err = w.Write(b[:n])
+		if err != nil && err != io.EOF {
+			monitor.Println(err)
+			return
+		}
 
 	}()
+	<-done
 
 }
